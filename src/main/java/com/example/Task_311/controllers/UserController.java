@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class UserController {
     private final UsersService usersService;
-
+    
     @Autowired
     public UserController(UsersService usersService) {
         this.usersService = usersService;
@@ -48,7 +48,6 @@ public class UserController {
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("person") @Valid User user, BindingResult bindingResult,
                          @PathVariable("id") long id) {
-        System.out.println("123");
         if (bindingResult.hasErrors())
             return "edit";
 
